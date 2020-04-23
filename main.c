@@ -75,20 +75,17 @@ void insertion()
 }
 void merge()
 {
-    merge_divide(/*int arr[],*/0,11);
+    merge_divide(/*int arr[],*/0,10);
 }
 void merge_divide(/*int arr[],*/int start ,int end)
 {
-    int middle;
     if(start<end)
     {
-        int middle=start+(end-1)/2;
-        printf("%d",middle);
+        int middle=start+(end-start)/2;
         merge_divide(start,middle);
         merge_divide(middle+1,end);
         merge_conqure(start,middle,end);
     }
-
 }
 void merge_conqure(/*int arr[],*/int start,int middle ,int end)
 {
@@ -98,13 +95,15 @@ void merge_conqure(/*int arr[],*/int start,int middle ,int end)
     int L[30],R[30];
     for(i=0;i<n1;i++)
     {
-        L[i]=arr[start+1];
+        L[i]=arr[1+i];
     }
     for(j=0;i<n2;j++)
     {
         R[j]=arr[middle+j+1];
     }
-    i=0,j=0,k=start;
+    i=0;
+    j=0;
+    k=start;
     while(i<n1&&j<n2)
     {
         if(L[i]<=R[j])
